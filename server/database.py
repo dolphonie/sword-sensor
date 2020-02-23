@@ -48,4 +48,4 @@ class Database:
     @staticmethod
     def string_response(data):
         fields = data.split(",")
-        return ">>> Detected hit by player {} at time {}".format(fields[0], fields[1])
+        return ">>> Detected hit by player {} on {} at time {}".format(fields[0], fields[1], fields[2])

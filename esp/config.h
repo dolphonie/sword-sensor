@@ -17,4 +17,13 @@ char requestBuffer[900];
 char responseBuffer[900];
 char body[600];
 
+
+// filters
+float LP_SPEED = 0.95;  
+
+// thresholds
+float OPP_THRESH = 70;
+float SWORD_THRESH = 85;
+
+
 #endif
