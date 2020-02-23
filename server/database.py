@@ -1,5 +1,5 @@
 import json
-
+import datetime
 
 class Database:
     """ Static interface for communicating with database. """
@@ -30,11 +30,15 @@ class Database:
 
     @staticmethod
     def add_entry(data):
+        # add time field
+        time = datetime.datetime.now()
+
+        formatted = "{}, {}".format(data, time)
         if Database.data is None:
             Database.load()
-        Database.data.append(data)
+        Database.data.append(formatted)
         Database.save()
-        return Database.string_response(data)
+        return Database.string_response(formatted)
 
     @staticmethod
     def reset():
@@ -43,4 +47,5 @@ class Database:
 
     @staticmethod
     def string_response(data):
-        return ">>> " + data
+        fields = data.split(",")
+        return ">>> Detected hit by player {} at time {}".format(fields[0], fields[1])
