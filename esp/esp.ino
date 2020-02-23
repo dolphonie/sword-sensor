@@ -12,11 +12,11 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 //  senseCurrent();
-  sprintf(body, "------WebKitFormBoundary7MA4YWxkTrZu0gW\r\nContent-Disposition: form-data; name=\"data\"\r\n\r\nfoobar\r\n------WebKitFormBoundary7MA4YWxkTrZu0gW--");
+  sprintf(body, "data=esprocks");
   http_post(body, requestBuffer, responseBuffer);
   Serial.println(responseBuffer);
   
-  delay(1000); // arbitrary delay to limit data to serial port
+  delay(10000); // arbitrary delay to limit data to serial port  
 }
 
 long senseCurrent(){

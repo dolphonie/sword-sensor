@@ -101,7 +101,7 @@ void http_post(char* body, char* request_buffer, char* response_buffer) {
   strcat(request_buffer, "\r\n"); // new line from header to body
   strcat(request_buffer, body); // body
   strcat(request_buffer, "\r\n"); // header
-  Serial.println(request_buffer);
+//  Serial.println(request_buffer);
   do_http_request(HOST, request_buffer, response_buffer, sizeof(response_buffer), RESPONSE_TIMEOUT, false);
 }
 
