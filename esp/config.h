@@ -2,7 +2,7 @@
 #define CONFIG_H
 
 // Server URL
-char URL[] = "http://65ac765d.ngrok.io/post";
+char URL[] = "http://65ac765d.ngrok.io/get";
 char HOST[] = "http://65ac765d.ngrok.io";
 
 // Wifi constants
@@ -23,7 +23,7 @@ float LP_SPEED = 0.95;
 
 // thresholds
 float OPP_THRESH = 70;
-float SWORD_THRESH = 85;
+float SWORD_THRESH = 80;
 
 
 #endif

@@ -29,6 +29,17 @@ def get_request():
     return "Success"
 
 
+@app.route("/get/", methods=['GET', 'POST'])
+def send_control():
+    if request.method == "POST":
+        data = request.form["data"]
+    else:
+        data = request.args["data"]
+
+    print(data)
+    return "up"
+
+
 @socketio.on("connect", namespace="/socket")
 def server_connect():
     emit("server response", {"data": "Connected"})
