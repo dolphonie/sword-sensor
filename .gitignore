@@ -33,3 +33,5 @@
 
 # Jetbrains
 .idea/
+__pycache__
+server/data.json

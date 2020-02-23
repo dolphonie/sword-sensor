@@ -93,22 +93,26 @@ void http_post(char* body, char* request_buffer, char* response_buffer) {
   // Adapted from 6.08 lab code
   int body_len = strlen(body); // calculate body length (for header reporting)
   sprintf(request_buffer, "POST %s HTTP/1.1\r\n", URL);
-  strcat(request_buffer, "Host: 608dev.net\r\n");
+  strcat(request_buffer, "Host: ");
+  strcat(request_buffer, HOST);
+  strcat(request_buffer, "\r\n");
   strcat(request_buffer, "Content-Type: application/x-www-form-urlencoded\r\n");
   sprintf(request_buffer + strlen(request_buffer), "Content-Length: %d\r\n", body_len); // append string formatted to end of request buffer
   strcat(request_buffer, "\r\n"); // new line from header to body
   strcat(request_buffer, body); // body
   strcat(request_buffer, "\r\n"); // header
   Serial.println(request_buffer);
-  do_http_request("608dev.net", request_buffer, response_buffer, sizeof(response_buffer), RESPONSE_TIMEOUT, false);
+  do_http_request(HOST, request_buffer, response_buffer, sizeof(response_buffer), RESPONSE_TIMEOUT, false);
 }
 
 void http_get(char* params, char* request_buffer, char* response_buffer) {
   // Adapted from 6.08 lab code
   sprintf(request_buffer, "GET %s/?%s HTTP/1.1\r\n", URL, params);
-  strcat(request_buffer, "Host: 608dev.net\r\n"); // add more to the end
+  strcat(request_buffer, "Host: ");
+  strcat(request_buffer, HOST);
+  strcat(request_buffer, "\r\n");
   strcat(request_buffer, "\r\n"); // add blank line
-  do_http_request("608dev.net", request_buffer, response_buffer, sizeof(response_buffer), RESPONSE_TIMEOUT, false);
+  do_http_request(HOST, request_buffer, response_buffer, sizeof(response_buffer), RESPONSE_TIMEOUT, false);
 }
 
 #endif
